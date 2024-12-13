@@ -6,9 +6,9 @@
 #    By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 16:34:46 by mrouves           #+#    #+#              #
-#    Updated: 2024/12/13 17:03:12 by mrouves          ###   ########.fr        #
+#    Updated: 2024/12/14 00:19:31 by mrouves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_CLIENT		:=	client/main.c\
-						client/ft_safe_atopid.c\
+						utils/utils.c\

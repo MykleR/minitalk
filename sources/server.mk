@@ -6,8 +6,10 @@
 #    By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 16:34:07 by mrouves           #+#    #+#              #
-#    Updated: 2024/12/13 16:34:27 by mrouves          ###   ########.fr        #
+#    Updated: 2024/12/14 00:21:32 by mrouves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_SERVER		:=	server/main.c\
+						utils/binaries.c\
+						utils/utils.c\
