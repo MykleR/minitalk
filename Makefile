@@ -6,14 +6,13 @@
 #    By: mrouves <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 18:27:35 by mrouves           #+#    #+#              #
-#    Updated: 2024/12/14 20:29:21 by mrouves          ###   ########.fr        #
+#    Updated: 2024/12/15 20:03:22 by mrouves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-include sources/title.mk
 include sources/pretty_compile.mk
-include sources/server.mk
-include sources/client.mk
+include sources/sources_server.mk
+include sources/sources_client.mk
 NAME_CLIENT 	:= client
 NAME_SERVER		:= server
 
@@ -34,7 +33,7 @@ CFLAGS			:= -Wall -Wextra -Werror -g
 IFLAGS			:= -I $(DIR_HEADERS) -I $(LIBFT_HEADERS)
 DIR_DUP			= mkdir -p $(@D)
 
-all: $(NAME_CLIENT) $(NAME_SERVER) $(OBJS)
+all: $(NAME_CLIENT) $(NAME_SERVER)
 
 $(NAME_CLIENT): $(OBJS_CLIENT) $(LIBFT)
 	@$(CC) $(CFLAGS) $(IFLAGS) $^ -o $@

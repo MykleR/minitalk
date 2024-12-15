@@ -6,9 +6,22 @@
 #    By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/14 16:26:20 by mrouves           #+#    #+#              #
-#    Updated: 2024/12/14 17:06:59 by mrouves          ###   ########.fr        #
+#    Updated: 2024/12/15 20:02:54 by mrouves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+define TITLE
+
+┌────────────────────────────────┐
+│░█▄█░▀█▀░█▀█░▀█▀░▀█▀░█▀█░█░░░█░█│
+│░█░█░░█░░█░█░░█░░░█░░█▀█░█░░░█▀▄│
+│░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀░▀│
+└────────────────────────────────┘
+
+endef
+export TITLE
+text-style 		= $(shell tput $1)$2$(shell tput sgr0)
+PRINT_TITLE		:= $(shell $(info $(call text-style,setaf 6, $(TITLE))))
 
 BOLD			= \033[1m
 OK_COLOR		= \033[0;32m
@@ -25,11 +38,11 @@ printf "%b" "$(COM_STRING) $(@F)$(NO_COLOR)\r"; \
 $(1) 2> $@.log; \
 RESULT=$$?; \
 if [ $$RESULT -ne 0 ]; then \
-  printf "%-60b%b" "$(COM_STRING) $(BOLD)$@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\r"; \
+  printf "%-60b%b" "$(COM_STRING) $(BOLD)$@" "$(ERROR_COLOR)$(ERROR_STRING)$(NO_COLOR)\n"; \
 elif [ -s $@.log ]; then \
-  printf "%-60b%b" "$(COM_STRING) $(BOLD)$@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\r"; \
+  printf "%-60b%b" "$(COM_STRING) $(BOLD)$@" "$(WARN_COLOR)$(WARN_STRING)$(NO_COLOR)\n"; \
 else  \
-  printf "%-40b%b" "$(COM_STRING) $(BOLD)$(@F)" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\r"; \
+  printf "%-40b%b" "$(COM_STRING) $(BOLD)$(@F)" "$(OK_COLOR)$(OK_STRING)$(NO_COLOR)\n"; \
 fi; \
 cat $@.log; \
 rm -f $@.log; \
