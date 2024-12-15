@@ -6,13 +6,12 @@
 #    By: mrouves <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 18:27:35 by mrouves           #+#    #+#              #
-#    Updated: 2024/12/15 20:03:22 by mrouves          ###   ########.fr        #
+#    Updated: 2024/12/15 20:28:02 by mrouves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 include sources/pretty_compile.mk
-include sources/sources_server.mk
-include sources/sources_client.mk
+include sources/sources.mk
 NAME_CLIENT 	:= client
 NAME_SERVER		:= server
 
