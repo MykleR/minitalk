@@ -6,7 +6,7 @@
 /*   By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 16:20:27 by mrouves           #+#    #+#             */
-/*   Updated: 2024/12/15 19:19:29 by mrouves          ###   ########.fr       */
+/*   Updated: 2024/12/15 20:08:49 by mrouves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	dynamic_str_destroy(t_dynamic_str *str)
 
 void	dynamic_str_add(t_dynamic_str *str, int c)
 {
-
 	if (__builtin_expect(!str, 0))
 		return ;
 	if (__builtin_expect(str->len >= str->cap, 0))

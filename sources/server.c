@@ -6,13 +6,13 @@
 /*   By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:38:18 by mrouves           #+#    #+#             */
-/*   Updated: 2024/12/15 19:56:07 by mrouves          ###   ########.fr       */
+/*   Updated: 2024/12/15 20:10:59 by mrouves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minitalk.h>
 
-bool unordered_get(t_pid_server *server, pid_t key,
+static bool	unordered_get(t_pid_server *server, pid_t key,
 		uint32_t *out_id, bool *is_new)
 {
 	uint32_t		start;
@@ -35,7 +35,7 @@ bool unordered_get(t_pid_server *server, pid_t key,
 	return (true);
 }
 
-bool	manage_client(t_pid_reader *client,	t_dynamic_str *str, int sig)
+static bool	manage_client(t_pid_reader *client,	t_dynamic_str *str, int sig)
 {
 	bool	is_end;
 
@@ -53,7 +53,7 @@ bool	manage_client(t_pid_reader *client,	t_dynamic_str *str, int sig)
 	return (!is_end);
 }
 
-void	sig_handler(int sig, siginfo_t *info, void *context)
+static void	sig_handler(int sig, siginfo_t *info, void *context)
 {
 	static t_pid_server	server = {0};
 	uint32_t			id;
@@ -65,7 +65,7 @@ void	sig_handler(int sig, siginfo_t *info, void *context)
 	if (__builtin_expect(is_new, 0))
 		dynamic_str_create(server.strings + id);
 	if (__builtin_expect(manage_client(
-			server.clients + id, server.strings + id, sig), 1))
+				server.clients + id, server.strings + id, sig), 1))
 		return ;
 	server.clients[id].key = 0;
 	dynamic_str_print(server.strings + id);
@@ -73,7 +73,7 @@ void	sig_handler(int sig, siginfo_t *info, void *context)
 	kill(info->si_pid, SIGUSR2);
 }
 
-void	exit_handler(int sig, siginfo_t *info, void *context)
+static void	exit_handler(int sig, siginfo_t *info, void *context)
 {
 	(void) sig;
 	(void) context;
@@ -86,7 +86,7 @@ int	main(void)
 	struct sigaction	listener;
 	struct sigaction	exit_gate;
 
-	ft_printf(1,"%d\n", (int)getpid());
+	ft_printf(1, "%d\n", (int)getpid());
 	sigemptyset(&listener.sa_mask);
 	sigemptyset(&exit_gate.sa_mask);
 	listener.sa_flags = SA_RESTART | SA_SIGINFO;

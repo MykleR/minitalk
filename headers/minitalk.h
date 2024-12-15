@@ -6,7 +6,7 @@
 /*   By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:35:47 by mrouves           #+#    #+#             */
-/*   Updated: 2024/12/15 20:00:18 by mrouves          ###   ########.fr       */
+/*   Updated: 2024/12/15 20:22:23 by mrouves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_dynamic_str
 	uint32_t		cap;
 }	t_dynamic_str;
 
-
 typedef struct s_pid_reader
 {
 	unsigned char	chr;
@@ -45,6 +44,7 @@ typedef struct s_pid_server
 typedef struct s_pid_client
 {
 	unsigned char	*send;
+	pid_t			server;
 	int				bit;
 	int				timeout_counter;
 }	t_pid_client;
@@ -53,6 +53,4 @@ bool	dynamic_str_create(t_dynamic_str *str);
 void	dynamic_str_destroy(t_dynamic_str *str);
 void	dynamic_str_add(t_dynamic_str *str, int c);
 void	dynamic_str_print(t_dynamic_str *str);
-
-bool	ft_safe_atopid(const char *str, pid_t *out);
 #endif

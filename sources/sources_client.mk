@@ -6,9 +6,8 @@
 #    By: mrouves <mrouves@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 16:34:46 by mrouves           #+#    #+#              #
-#    Updated: 2024/12/15 20:01:32 by mrouves          ###   ########.fr        #
+#    Updated: 2024/12/15 20:07:02 by mrouves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES_CLIENT		:=	client.c\
-						utils.c\
